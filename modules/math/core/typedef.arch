@@ -1,0 +1,34 @@
+namespace stdlib.math
+
+def Monoid(M, unit: M): struct {
+  def _ ⋅ _ : M -> M -> M
+
+  def `1` := unit
+
+  def associativity: 
+    (x: M, y: M, z: M) -> (x ⋅ y) ⋅ z ~ x ⋅ (y ⋅ z)
+
+  def unitality:
+    (x: M) -> 1 ⋅ x ~ x ~ x ⋅ 1
+}
+
+def Group(G, unit: G): Monoid(G, unit) {
+  def inverse: G -> G
+  def invertible(a: G):
+    inverse a 
+}
+
+def AbelianGroup(A, unit: A): Group {
+  def _ + _ : A -> A -> A
+  def `1` := unit
+
+  def associativity: 
+    (x: A, y: A, z: A) -> (x + y) + z ~ x + (y + z)
+
+  def commutative: 
+    (x: A, y: A) -> x + y ~ y + x
+}
+
+def ℝ
+
+def `+` ℝ -> ℝ

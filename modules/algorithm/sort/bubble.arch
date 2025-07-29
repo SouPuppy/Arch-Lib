@@ -1,0 +1,4 @@
+namespace std.algorithm
+
+# return the sorted index
+def sort.bubble(T: Ordered): List[T] -> List[ℕ]
